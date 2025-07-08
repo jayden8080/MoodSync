@@ -10,10 +10,10 @@ export default function MainApp() {
     <AppProvider>
       <div className="flex h-screen bg-background">
         <AppSidebar />
-        <div className="flex flex-col flex-1 overflow-hidden">
+        <main className="flex flex-col flex-1 overflow-hidden">
           <AppHeader />
           <ContentArea />
-        </div>
+        </main>
       </div>
     </AppProvider>
   );

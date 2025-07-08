@@ -1,8 +1,8 @@
 "use client";
 
 import { useApp } from '@/contexts/app-context';
-import { Input } from '@/components/ui/input';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Input } from '@/components/ui/primitives/input';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/primitives/avatar';
 import { Music } from 'lucide-react';
 
 export default function AppHeader() {
@@ -21,6 +21,7 @@ export default function AppHeader() {
         VibeSync
       </div>
       <div className="flex-1 max-w-xl mx-10">
+        <label htmlFor="chat-input" className="sr-only">Chat Input</label>
         <Input
           id="chat-input"
           type="text"
@@ -33,7 +34,7 @@ export default function AppHeader() {
       </div>
       <div className="flex items-center gap-3 cursor-pointer">
         <Avatar>
-          <AvatarImage src="https://placehold.co/40x40.png" alt="User Avatar" data-ai-hint="avatar profile" />
+          <AvatarImage src="https://placehold.co/40x40.png" alt="User Avatar" />
           <AvatarFallback>ML</AvatarFallback>
         </Avatar>
         <span className="font-medium">Music Lover</span>

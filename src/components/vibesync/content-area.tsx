@@ -8,8 +8,8 @@ export default function ContentArea() {
   const { currentView } = useApp();
 
   return (
-    <main className="flex-1 bg-background p-5 sm:p-8 overflow-y-auto">
+    <div className="flex-1 bg-background p-5 sm:p-8 overflow-y-auto">
       {currentView === 'home' ? <WelcomeScreen /> : <ChatView />}
-    </main>
+    </div>
   );
 }
