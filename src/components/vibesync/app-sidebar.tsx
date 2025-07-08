@@ -57,32 +57,32 @@ export default function AppSidebar() {
 
   return (
     <aside className="w-64 bg-[#000000] p-4 flex-col gap-8 border-r border-white/10 shrink-0 h-full overflow-y-auto hidden md:flex">
-      <div className='flex flex-col gap-6'>
-        <div>
+      <nav className='flex flex-col gap-6'>
+        <section>
           <h3 className="text-muted-foreground text-xs font-bold uppercase tracking-widest mb-3 px-2">Your Library</h3>
           <div className="flex flex-col gap-1">
             {sidebarItems.map((item) => (
               <SidebarItem key={item.name} item={item} active={item.active} />
             ))}
           </div>
-        </div>
-        <div>
+        </section>
+        <section>
           <h3 className="text-muted-foreground text-xs font-bold uppercase tracking-widest mb-3 px-2">Recently Played</h3>
           <div className="flex flex-col gap-1">
             {recentlyPlayed.map((item) => (
               <SidebarItem key={item.name} item={{...item, action: () => showComingSoon(item.name)}} />
             ))}
           </div>
-        </div>
-        <div>
+        </section>
+        <section>
           <h3 className="text-muted-foreground text-xs font-bold uppercase tracking-widest mb-3 px-2">Made for you</h3>
           <div className="flex flex-col gap-1">
             {madeForYou.map((item) => (
               <SidebarItem key={item.name} item={{...item, action: () => showComingSoon(item.name)}} />
             ))}
           </div>
-        </div>
-      </div>
+        </section>
+      </nav>
     </aside>
   );
 }
