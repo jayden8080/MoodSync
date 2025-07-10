@@ -1,4 +1,4 @@
 import { config } from 'dotenv';
 config();
 
-import '@/ai/flows/generate-playlist.ts';
+import '@/ai/flows/suggest-songs-from-mood.ts';
