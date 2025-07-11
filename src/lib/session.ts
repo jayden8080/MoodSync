@@ -1,11 +1,14 @@
-import { getIronSession, IronSession, IronSessionData } from 'iron-session';
+import { getIronSession, IronSession } from 'iron-session';
 import { cookies } from 'next/headers';
 
-export interface SessionData extends IronSessionData {
+export interface SessionData {
   accessToken?: string;
   refreshToken?: string;
   expiresAt?: number;
 }
+
+// 수정: IronSession에 제네릭으로 SessionData 넣기
+export type MySession = IronSession<SessionData>;
 
 export const sessionOptions = {
   password: process.env.SESSION_SECRET as string,
@@ -15,6 +18,8 @@ export const sessionOptions = {
   },
 };
 
-export function getSession() {
-  return getIronSession<SessionData>(cookies(), sessionOptions);
+export async function getSession(): Promise<MySession> {
+  const cookieStore = cookies();
+  // 제네릭 인자에 MySession 넣기
+  return getIronSession<SessionData>(await cookieStore, sessionOptions);
 }
